@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gym Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>Gym Registration</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="schedule.html">Schedule</a>
+<a href="plans.html">Plans</a>
+<a href="register.html">Register</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+
+<form id="gymForm">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="number" id="mobile" placeholder="Mobile Number" required>
+<input type="email" id="email" placeholder="Email">
+<textarea id="message" placeholder="Your Enquiry"></textarea>
+
+<button type="submit">Submit</button>
+</form>
+
+<!-- Thank You Message -->
+<div id="thankYou" style="display:none; text-align:center; margin-top:30px;">
+<h2>We will contact you soon</h2>
+<h1>THANK YOU</h1>
+</div>
+
+</div>
+
+<footer>
+<p>Royal Fitness Gym | Call: 9022688479</p>
+</footer>
+
+<script>
+document.getElementById("gymForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var mobile = document.getElementById("mobile").value;
+    var email = document.getElementById("email").value;
+    var msg = document.getElementById("message").value;
+
+    var whatsappMessage =
+        "Royal Fitness Gym Enquiry%0A" +
+        "Name: " + name + "%0A" +
+        "Mobile: " + mobile + "%0A" +
+        "Email: " + email + "%0A" +
+        "Message: " + msg;
+
+    var whatsappURL =
+        "https://wa.me/919022688479?text=" + whatsappMessage;
+
+    window.open(whatsappURL, "_blank");
+
+    document.getElementById("gymForm").style.display = "none";
+    document.getElementById("thankYou").style.display = "block";
+});
+</script>
+
+</body>
+</html>
+
